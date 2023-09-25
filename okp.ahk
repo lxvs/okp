@@ -1,7 +1,7 @@
 ﻿#Requires AutoHotkey v2.0
 #NoTrayIcon
 
-MyGui := Gui(, "WINWORD One Key Paste")
+MyGui := Gui(, "WINWORD One Key Paste 0.2.0")
 MyGui.AddText(, "F2:")
 F2 := MyGui.AddEdit("r3 w480")
 MyGui.AddText(, "F5:")
