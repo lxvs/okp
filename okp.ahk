@@ -23,49 +23,49 @@ ProcName := MyGui.AddEdit("r1 w480", "WINWORD.exe")
 MyGui.OnEvent("Close", ExitAppOnClose)
 MyGui.Show()
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F2.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F2::
 {
     Send(F2.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F5.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F5::
 {
     Send(F5.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F6.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F6::
 {
     Send(F6.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F7.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F7::
 {
     Send(F7.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F9.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F9::
 {
     Send(F9.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F10.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F10::
 {
     Send(F10.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F11.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F11::
 {
     Send(F11.Value)
 }
 
-#HotIf WinActive("ahk_exe " . ProcName.Value)
+#HotIf F12.Value != "" && WinActive("ahk_exe " . ProcName.Value)
 F12::
 {
     Send(F12.Value)
