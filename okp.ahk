@@ -1,33 +1,67 @@
 ﻿#Requires AutoHotkey v2.0
 #NoTrayIcon
 
-MyGui := Gui(, "WINWORD One Key Paste 0.2.0")
-MyGui.AddText(, "F1:")
-F1 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F2:")
-F2 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F3:")
-F3 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F4:")
-F4 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F5:")
-F5 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F6:")
-F6 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F7:")
-F7 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F8:")
-F8 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F9:")
-F9 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F10:")
-F10 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F11:")
-F11 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "F12:")
-F12 := MyGui.AddEdit("r3 w480")
-MyGui.AddText(, "Process:")
-ProcName := MyGui.AddEdit("r1 w480", "WINWORD.exe")
+KeyName := "HKCU\Software\lxvs\okp"
+F1Reg := RegRead(KeyName, "F1", "")
+F2Reg := RegRead(KeyName, "F2", "")
+F3Reg := RegRead(KeyName, "F3", "")
+F4Reg := RegRead(KeyName, "F4", "")
+F5Reg := RegRead(KeyName, "F5", "")
+F6Reg := RegRead(KeyName, "F6", "")
+F7Reg := RegRead(KeyName, "F7", "")
+F8Reg := RegRead(KeyName, "F8", "")
+F9Reg := RegRead(KeyName, "F9", "")
+F10Reg := RegRead(KeyName, "F10", "")
+F11Reg := RegRead(KeyName, "F11", "")
+F12Reg := RegRead(KeyName, "F12", "")
+ProcNameReg := RegRead(KeyName, "ProcName", "WINWORD.exe")
+
+MyGui := Gui(, "One Key Paste 0.2.0")
+MyGui.AddText("right w20", "F1:")
+F1 := MyGui.AddEdit("yp r3 w240", F1Reg)
+MyGui.AddText("yp right w20", "F2:")
+F2 := MyGui.AddEdit("yp r3 w240", F2Reg)
+MyGui.AddText("xm right w20", "F3:")
+F3 := MyGui.AddEdit("yp r3 w240", F3Reg)
+MyGui.AddText("yp right w20", "F4:")
+F4 := MyGui.AddEdit("yp r3 w240", F4Reg)
+MyGui.AddText("xm right w20", "F5:")
+F5 := MyGui.AddEdit("yp r3 w240", F5Reg)
+MyGui.AddText("yp right w20", "F6:")
+F6 := MyGui.AddEdit("yp r3 w240", F6Reg)
+MyGui.AddText("xm right w20", "F7:")
+F7 := MyGui.AddEdit("yp r3 w240", F7Reg)
+MyGui.AddText("yp right w20", "F8:")
+F8 := MyGui.AddEdit("yp r3 w240", F8Reg)
+MyGui.AddText("xm right w20", "F9:")
+F9 := MyGui.AddEdit("yp r3 w240", F9Reg)
+MyGui.AddText("yp right w20", "F10:")
+F10 := MyGui.AddEdit("yp r3 w240", F10Reg)
+MyGui.AddText("xm right w20", "F11:")
+F11 := MyGui.AddEdit("yp r3 w240", F11Reg)
+MyGui.AddText("yp right w20", "F12:")
+F12 := MyGui.AddEdit("yp r3 w240", F12Reg)
+MyGui.AddText("xm", "Only active for process:")
+ProcName := MyGui.AddEdit("x+m yp r1 w280", ProcNameReg)
+
+SaveAsDefaultClick(GuiCtrlObj, Info) {
+    RegWrite F1.Value, "REG_SZ", KeyName, "F1"
+    RegWrite F2.Value, "REG_SZ", KeyName, "F2"
+    RegWrite F3.Value, "REG_SZ", KeyName, "F3"
+    RegWrite F4.Value, "REG_SZ", KeyName, "F4"
+    RegWrite F5.Value, "REG_SZ", KeyName, "F5"
+    RegWrite F6.Value, "REG_SZ", KeyName, "F6"
+    RegWrite F7.Value, "REG_SZ", KeyName, "F7"
+    RegWrite F8.Value, "REG_SZ", KeyName, "F8"
+    RegWrite F9.Value, "REG_SZ", KeyName, "F9"
+    RegWrite F10.Value, "REG_SZ", KeyName, "F10"
+    RegWrite F11.Value, "REG_SZ", KeyName, "F11"
+    RegWrite F12.Value, "REG_SZ", KeyName, "F12"
+    RegWrite ProcName.Value, "REG_SZ", KeyName, "ProcName"
+}
+
+SaveAsDefault := MyGui.AddButton("x+m yp w120", "&Save as Default")
+SaveAsDefault.OnEvent("Click", SaveAsDefaultClick)
 MyGui.OnEvent("Close", ExitAppOnClose)
 MyGui.Show()
 
