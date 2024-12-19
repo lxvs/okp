@@ -16,7 +16,7 @@ F11Reg := RegRead(KeyName, "F11", "")
 F12Reg := RegRead(KeyName, "F12", "")
 ProcNameReg := RegRead(KeyName, "ProcName", "WINWORD.exe")
 
-MyGui := Gui(, "One Key Paste 0.2.0")
+MyGui := Gui(, "One Key Paste 0.3.0")
 MyGui.AddText("right w20", "F1:")
 F1 := MyGui.AddEdit("yp r3 w240", F1Reg)
 MyGui.AddText("yp right w20", "F2:")
